@@ -109,4 +109,8 @@ Future Improvements
 
 Conclusion
 
+<<<<<<< HEAD
 PGFix demonstrates a complete basic full-stack CRUD application using HTML, CSS, JavaScript, Node.js and Express.js. The project focuses on working functionality, REST API concepts, input validation, dynamic rendering and responsive design.
+=======
+PGFix demonstrates a complete basic full-stack CRUD application using HTML, CSS, JavaScript, Node.js and Express.js. The project focuses on working functionality, REST API concepts, input validation, dynamic rendering and responsive design.
+>>>>>>> 5da5793ea9524c68ebea2d1b7aaacb6d2ee8a85a
