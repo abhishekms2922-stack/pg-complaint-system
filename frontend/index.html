@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGFix - Complaint Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <h1>PGFix</h1>
+            <p>Apartment & PG Complaint Management</p>
+        </div>
+        <button onclick="openForm()">+ New Complaint</button>
+    </header>
+
+    <main>
+
+        <section class="stats">
+            <div class="stat-card">
+                <h3>Total Complaints</h3>
+                <p id="totalCount">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Pending</h3>
+                <p id="pendingCount">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>In Progress</h3>
+                <p id="progressCount">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Resolved</h3>
+                <p id="resolvedCount">0</p>
+            </div>
+        </section>
+
+        <section class="controls">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search complaints..."
+                oninput="displayComplaints()"
+            >
+
+            <select id="statusFilter" onchange="displayComplaints()">
+                <option value="All">All Status</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Resolved">Resolved</option>
+            </select>
+
+            <select id="categoryFilter" onchange="displayComplaints()">
+                <option value="All">All Categories</option>
+                <option value="Water">Water</option>
+                <option value="Electricity">Electricity</option>
+                <option value="Internet">Internet</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Housekeeping">Housekeeping</option>
+                <option value="Other">Other</option>
+            </select>
+        </section>
+
+        <section>
+            <h2>Complaints</h2>
+            <div id="complaintList"></div>
+        </section>
+
+    </main>
+
+    <!-- Complaint Form -->
+    <div id="formModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close" onclick="closeForm()">&times;</span>
+
+            <h2 id="formTitle">Submit Complaint</h2>
+
+            <form id="complaintForm">
+
+                <input type="hidden" id="complaintId">
+
+                <label>Resident Name</label>
+                <input type="text" id="residentName" required>
+
+                <label>Room / Flat Number</label>
+                <input type="text" id="roomNumber" required>
+
+                <label>Contact Number</label>
+                <input type="tel" id="contact" required>
+
+                <label>Category</label>
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Water">Water</option>
+                    <option value="Electricity">Electricity</option>
+                    <option value="Internet">Internet</option>
+                    <option value="Maintenance">Maintenance</option>
+                    <option value="Housekeeping">Housekeeping</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label>Description</label>
+                <textarea id="description" rows="4" required></textarea>
+
+                <label>Date</label>
+                <input type="date" id="date" required>
+
+                <label>Priority</label>
+                <select id="priority" required>
+                    <option value="">Select Priority</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+
+                <button type="submit">Save Complaint</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
